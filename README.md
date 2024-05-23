@@ -4,17 +4,24 @@ Central Monitoring system leveraging WebAssembly
 For running the system, just execute command one-by-one as written below:
 
 sudo apt-get update
+
 sudo apt-get upgrade
+
 sudo apt-get install python3 python3-pip
+
 pip3 install mysql-connector-python
+
 sudo apt-get install bpfcc-tools libbpfcc-dev linux-headers-$(uname -r)
+
 sudo apt-get install mysql-server
+
 sudo mysql_secure_installation
 
 # MySQL commands
 sudo mysql -u root -p
 
 CREATE DATABASE system_info;
+
 USE system_info;
 
 CREATE TABLE IF NOT EXISTS execsnoop_kernel_monitoring (
