@@ -65,7 +65,9 @@ CREATE TABLE opensnoop_kernel_monitoring (
 
 
 CREATE USER 'db_user'@'%' IDENTIFIED BY 'Salam123!';
+
 GRANT ALL PRIVILEGES ON system_info.* TO 'db_user'@'%';
+
 FLUSH PRIVILEGES;
 
 exit;
