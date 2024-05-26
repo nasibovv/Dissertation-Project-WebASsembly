@@ -73,3 +73,61 @@ FLUSH PRIVILEGES;
 exit;
 
 sudo python3 <python_file.py>
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+wget https://github.com/iovisor/bcc/releases/download/v0.25.0/bcc-src-with-submodule.tar.gz
+
+tar xf bcc-src-with-submodule.tar.gz
+
+cd bcc/
+
+apt install -y python-is-python3
+
+apt install -y bison build-essential cmake flex git libedit-dev libllvm11 llvm-11-dev libclang-11-dev zlib1g-dev libelf-dev libfl-dev python3-distutils
+
+apt install -y checkinstall
+
+mkdir build
+
+cd build/
+
+
+
+sudo apt-get install llvm-11 llvm-11-dev clang-11
+
+export LLVM_DIR=/usr/lib/llvm-11
+
+export C_INCLUDE_PATH=/usr/include/llvm-11
+
+export CPLUS_INCLUDE_PATH=/usr/include/llvm-11
+
+export LIBRARY_PATH=/usr/lib/llvm-11/lib
+
+
+
+vim /home/ubuntu_server/bcc/src/cc/frontends/clang/b_frontend_action.cc
+
+starts_with --> startswith (326, 378, 892, 1402)
+
+
+vim /home/ubuntu_server/bcc/CMakeLists.txt
+
+include_directories("/usr/include/llvm-11" "/usr/include/llvm-11/llvm-c")
+
+link_directories("/usr/lib/llvm-11/lib")
+
+
+
+cmake -DCMAKE_CXX_FLAGS="-I/usr/include/llvm-11 -I/usr/include/llvm-11/llvm-c" -DCMAKE_EXE_LINKER_FLAGS="-L/usr/lib/llvm-11/lib" -DLLVM_DIR=/usr/lib/llvm-11/cmake/llvm ..
+
+make
+
+checkinstall
+
+
+(if needed 
+
+make clean
+
+rm -rf * )
