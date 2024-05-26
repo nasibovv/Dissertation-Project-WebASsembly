@@ -43,12 +43,12 @@ CREATE TABLE IF NOT EXISTS funccount_kernel_monitoring (
 
 CREATE TABLE IF NOT EXISTS biosnoop_kernel_monitoring (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            time TIMESTAMP,
+            event_time TIMESTAMP,
             comm VARCHAR(255),
             pid INT,
-            type CHAR(1),
-            dev VARCHAR(255),
-            block BIGINT,
+            type CHAR(50),
+            disk VARCHAR(255),
+            sector BIGINT,
             bytes BIGINT,
             latency_ms FLOAT
         );
